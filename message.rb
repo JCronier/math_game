@@ -1,7 +1,12 @@
 class Message
+  def self.welcome
+    puts 'Welcome to the Two Player Math Game!'
+    puts
+  end
+
   def self.end_game(player)
     puts '----------GAME OVER----------'
-    puts "Player #{player.id} wins with a score of #{player.lives}/3!"
+    puts "PLAYER #{player.id} WINS WITH A SCORE OF #{player.lives}/3!"
     puts "Goodbye! Thanks for playing."
   end
 

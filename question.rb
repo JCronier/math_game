@@ -1,21 +1,17 @@
 class Question
-  def initialize
+  def initialize difficulty
     @answer_to_current_question = 0
-    @player_answer = 0
+    @difficulty = 10**difficulty
   end
 
-  def ask_question player
-    number_one = rand(0..9)
-    number_two = rand(0..9)
-    @answer_to_current_question = number_one + number_two
-    puts "Player #{player.id}: What does #{number_one} plus #{number_two} equal?"
+  def generate_question player
+    first_number = rand(0...@difficulty)
+    second_number = rand(0...@difficulty)
+    @answer_to_current_question = first_number + second_number
+    "Player #{player.id}: What does #{first_number} plus #{second_number} equal?"
   end
 
-  def check_answer
-    @answer_to_current_question == @player_answer
-  end
-
-  def get_answer_from_player
-    @player_answer = gets.chomp.to_i
+  def check_answer player_answer
+    @answer_to_current_question == player_answer
   end
 end
